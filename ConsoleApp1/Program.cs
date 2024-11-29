@@ -8,27 +8,23 @@ namespace ListaUczniow
         public string Imie { get; set; }
         public int Wiek { get; set; }
         public int Wzrost { get; set; }
-
         public Uczen(string imie, int wiek, int wzrost)
         {
             Imie = imie;
             Wiek = wiek;
             Wzrost = wzrost;
         }
-
         public override string ToString()
         {
             return $"Imię: {Imie}, Wiek: {Wiek}, Wzrost: {Wzrost} cm";
         }
     }
-
     class Program
     {
         static void Main(string[] args)
         {
             List<Uczen> uczniowie = new List<Uczen>();
             string opcja;
-
             do
             {
                 Console.WriteLine("\nMENU:");
@@ -56,7 +52,6 @@ namespace ListaUczniow
 
             } while (opcja != "3");
         }
-
         static void DodajUcznia(List<Uczen> uczniowie)
         {
             Console.Write("Podaj imię ucznia: ");
@@ -68,18 +63,15 @@ namespace ListaUczniow
                 Console.WriteLine("Nieprawidłowy wiek. Uczeń nie został dodany.");
                 return;
             }
-
             Console.Write("Podaj wzrost ucznia (w cm): ");
             if (!int.TryParse(Console.ReadLine(), out int wzrost))
             {
                 Console.WriteLine("Nieprawidłowy wzrost. Uczeń nie został dodany.");
                 return;
             }
-
             uczniowie.Add(new Uczen(imie, wiek, wzrost));
             Console.WriteLine("Uczeń został dodany pomyślnie.");
         }
-
         static void WyswietlUczniow(List<Uczen> uczniowie)
         {
             if (uczniowie.Count == 0)
